@@ -22,9 +22,9 @@ export const LoginView: React.FC = () => {
 
   const [selectedRole, setSelectedRole] = useState<'admin' | 'client' | null>(null);
 
-  // Admin form state (Credenciales guardadas internamente de forma confidencial)
-  const [adminUser, setAdminUser] = useState('ADMIN_CALIDAD');
-  const [adminPass, setAdminPass] = useState('1524');
+  // Admin form state (Credenciales verificadas internamente de forma confidencial)
+  const [adminUser, setAdminUser] = useState('');
+  const [adminPass, setAdminPass] = useState('');
   const [adminError, setAdminError] = useState('');
 
   // Client form state
@@ -35,7 +35,7 @@ export const LoginView: React.FC = () => {
 
   const handleAdminSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (adminUser.trim() === 'ADMIN_CALIDAD' && adminPass === '1524') {
+    if (adminUser.trim().toUpperCase() === 'ADMIN_CALIDAD' && adminPass.trim() === '1524') {
       setAdminError('');
       loginAsAdmin();
     } else {
@@ -187,7 +187,7 @@ export const LoginView: React.FC = () => {
                     value={adminUser}
                     onChange={(e) => setAdminUser(e.target.value)}
                     className="w-full bg-slate-900/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Usuario"
+                    placeholder="Usuario institucional"
                     required
                   />
                 </div>

@@ -255,3 +255,7 @@ export const INITIAL_PHVA_ACTIONS: PHVAAction[] = [
 export const INITIAL_ORDERS: Order[] = [];
 
 export const INITIAL_CLAIMS: Claim[] = [];
+
+export const initialIndicators = INITIAL_INDICATORS;
+export const initialPHVAActions = INITIAL_PHVA_ACTIONS;
+

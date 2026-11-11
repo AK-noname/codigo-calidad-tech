@@ -4,13 +4,18 @@ export interface ClientProfile {
   id: string;
   code: string;
   name: string;
+  companyName?: string;
   nit: string;
   city: 'Medellín' | 'Bogotá' | 'Cali' | 'Barranquilla' | 'Bucaramanga';
   contactPerson: string;
   email: string;
   phone: string;
   password?: string;
+  createdAt?: string;
 }
+
+export type Client = ClientProfile;
+
 
 export type OrderStatus =
   | 'Validado'
@@ -49,13 +54,14 @@ export type ClaimCategory =
   | 'Atención al cliente'
   | 'Otro';
 
-export type ClaimStatus = 'Abierta' | 'En proceso' | 'Cerrada';
+export type ClaimStatus = 'Abierta' | 'En proceso' | 'Cerrada' | 'Pendiente' | 'Resuelto';
 export type ClientClaimStatus = 'Recibido' | 'En revisión' | 'Resuelto';
 
 export type ClaimPriority = 'Baja' | 'Media' | 'Alta' | 'Crítica';
 
 export interface Claim {
   id: string;
+  code?: string;
   trackingNumber: string; // e.g. RC-0001
   clientId: string;
   clientName: string;
@@ -64,6 +70,7 @@ export interface Claim {
   isInternal: boolean; // true if registered as an internal non-conformity
   category: ClaimCategory;
   responsibleArea: string;
+  title?: string;
   description: string;
   rootCause?: string;
   priority: ClaimPriority;
@@ -94,6 +101,9 @@ export interface QualityIndicator {
     value: number;
   }[];
 }
+
+export type Indicator = QualityIndicator;
+
 
 export interface OrganizationalArea {
   id: string;
