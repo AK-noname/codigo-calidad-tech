@@ -1,0 +1,6 @@
+{
+  "name": "GlobalTech Calidad 360",
+  "description": "Sistema integral de gestión de calidad, trazabilidad y servicio al cliente para Importadora GlobalTech S.A.S.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
