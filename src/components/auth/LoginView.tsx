@@ -6,11 +6,9 @@ import {
   Lock,
   User,
   ArrowRight,
-  KeyRound,
   Plus,
   AlertTriangle,
   Info,
-  CheckCircle2,
 } from 'lucide-react';
 import { ClientRegistrationModal } from '../common/ClientRegistrationModal';
 
@@ -24,12 +22,12 @@ export const LoginView: React.FC = () => {
 
   const [selectedRole, setSelectedRole] = useState<'admin' | 'client' | null>(null);
 
-  // Admin form state (Credenciales fijas)
+  // Admin form state (Credenciales guardadas internamente de forma confidencial)
   const [adminUser, setAdminUser] = useState('ADMIN_CALIDAD');
   const [adminPass, setAdminPass] = useState('1524');
   const [adminError, setAdminError] = useState('');
 
-  // Client form state (strict confidential credentials)
+  // Client form state
   const [clientIdInput, setClientIdInput] = useState('');
   const [clientPasswordInput, setClientPasswordInput] = useState('');
   const [clientError, setClientError] = useState('');
@@ -171,18 +169,6 @@ export const LoginView: React.FC = () => {
               </button>
             </div>
 
-            {/* Credenciales institucionales fijas (mostradas de forma discreta) */}
-            <div className="mb-5 p-3.5 bg-blue-950/70 rounded-xl border border-blue-500/30 text-xs text-blue-200 flex items-start space-x-2.5">
-              <KeyRound className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <span className="font-bold block text-blue-100 mb-0.5">Credenciales de acceso institucional:</span>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-[11px]">
-                  <span>Usuario: <code className="bg-blue-900/80 px-1.5 py-0.5 rounded text-white font-mono font-bold">ADMIN_CALIDAD</code></span>
-                  <span>Contraseña: <code className="bg-blue-900/80 px-1.5 py-0.5 rounded text-white font-mono font-bold">1524</code></span>
-                </div>
-              </div>
-            </div>
-
             {adminError && (
               <div className="mb-4 p-3 bg-rose-500/20 border border-rose-500/40 rounded-xl text-rose-200 text-xs font-medium">
                 {adminError}
@@ -201,7 +187,7 @@ export const LoginView: React.FC = () => {
                     value={adminUser}
                     onChange={(e) => setAdminUser(e.target.value)}
                     className="w-full bg-slate-900/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="ADMIN_CALIDAD"
+                    placeholder="Usuario"
                     required
                   />
                 </div>
@@ -218,7 +204,7 @@ export const LoginView: React.FC = () => {
                     value={adminPass}
                     onChange={(e) => setAdminPass(e.target.value)}
                     className="w-full bg-slate-900/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="••••"
+                    placeholder="••••••••"
                     required
                   />
                 </div>
